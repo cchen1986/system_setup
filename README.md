@@ -22,4 +22,6 @@ for screen control.
   - Upper right: control-alt-K.
   - Lower right: control-alt-L.
 
+* Download and install [iTerm2](https://www.iterm2.com/).
+
 ## Linux Setup
