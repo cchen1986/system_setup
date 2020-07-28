@@ -2,7 +2,7 @@
 
 Setting up machines.
 
-## Mac
+## Mac Setup
 
 * Screen manage app - Spectacle
 
@@ -22,3 +22,4 @@ for screen control.
   - Upper right: control-alt-K.
   - Lower right: control-alt-L.
 
+## Linux Setup
