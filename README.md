@@ -6,7 +6,7 @@ Setting up machines.
 
 * Screen manage app - Spectacle
 
-Download the [Spectacle App](https://www.spectacleapp.com/). Use the following
+Download the [Spectacle App](https://www.spectacleapp.com/){:target="_blank"}. Use the following
 for screen control.
   - Select Launch Spectacle at login.
   - Center: control-alt-C.
