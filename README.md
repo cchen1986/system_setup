@@ -26,7 +26,7 @@ for screen control.
 * Open terminal and run setup script `./setup.sh`. NOTE: you may need to run it
   twice in case on-my-zsh quit the install.
 
-* Use iTerm as your default terminal app.
+* From now on, use iTerm2 as your default terminal app.
 
 * `vim .vimrc`
   * Install plugins: `:PlugInstall`.
