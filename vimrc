@@ -20,7 +20,6 @@ Plug 'kien/ctrlp.vim'
 Plug 'Valloric/YouCompleteMe'
 Plug 'zxqfl/tabnine-vim'
 
-"Plug 'zxqfl/tabnine-vim'
 Plug 'majutsushi/tagbar'
 
 " Comment

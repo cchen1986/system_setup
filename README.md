@@ -21,12 +21,15 @@ for screen control.
     - Upper right: control-alt-K.
     - Lower right: control-alt-L.
 
-* Run setup script `./setup.sh`. NOTE: you may need to run it twice in case
-  on-my-zsh quit the install.
-
 * Install Dropbox.
 
-* `vim .vimrc`, then `:PlugInstall`. Upon completion, `cd
-  ~/.vim/plugged/YouCompleteMe`, and run `python install.py --clang-completer`
+* Open terminal and run setup script `./setup.sh`. NOTE: you may need to run it
+  twice in case on-my-zsh quit the install.
+
+* Use iTerm as your default terminal app.
+
+* `vim .vimrc`
+  * Install plugins: `:PlugInstall`.
+  * Build YouCompleteMe. `cd ~/.vim/plugged/YouCompleteMe`, and run `python install.py --clang-completer`
 
 ## Linux Setup

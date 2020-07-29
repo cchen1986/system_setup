@@ -20,6 +20,7 @@ brew upgrade
 echo "Installing Python3 ..."
 brew install python
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+pip3 install --upgrade pip
 
 # Jupyter notebook
 echo "Installing Jupyter Notebook ..."
@@ -27,7 +28,7 @@ pip3 install --user jupyterlab
 
 brew cask install iterm2
 
-# Oh-my-zsh
+# Oh-my-zsh.
 echo "Installing oh-my-zsh ..."
 brew install zsh zsh-completions
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -37,22 +38,26 @@ git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerl
 cp zshrc $HOME/.zshrc
 source $HOME/.zshrc
 
-# Install neovim
-echo "Installing Neovim"
+# Install neovim.
+echo "Installing NeoVim ..."
 brew install neovim
-# Vim plug
+pip2 install --user neovim
+pip3 install --user neovim
+
+# Vim Plug
+echo "Configuring NeoVim ..."
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 mkdir -p $HOME/.config
 ln -s ~/.vim $HOME/.config/nvim
 ln -s ~/.vimrc $HOME/.config/nvim/init.vim
 
-pip2 install --user neovim
-pip3 install --user neovim
-
+# For building vim YouCompleteMe.
+echo "Installing cmake ..."
 brew install cmake
 
 # Google Vim-codefmt
+echo "Configuring Google Vim-CodeFmt ..."
 brew install clang-format
 brew install go
 mkdir $HOME/go
