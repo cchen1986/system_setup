@@ -27,6 +27,13 @@ for screen control.
   twice in case on-my-zsh quit the install.
 
 * From now on, use iTerm2 as your default terminal app.
+  * "Command + ," to go to iTerm2 preference.
+  * Enable "Option + left, Option + right" for word navigation, go to "Profiles",
+    and find "Option <-". Change the Action to: "Send Escape Sequence", "ESC+":
+    f. Same for "Option ->", set it to "ESC+": b.
+  * Enable "Option + delete" for word deletion: "Command ," -> "Keys" -> "Add".
+    "Option + Delete": Action = "Send Hex Code". Value should be "0x17" for word
+    deletion.
 
 * `vim .vimrc`
   * Install plugins: `:PlugInstall`.
