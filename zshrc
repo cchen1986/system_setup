@@ -156,25 +156,3 @@ alias size="du -sh"
 if type nvim > /dev/null 2>&1; then
   alias vim='nvim'
 fi
-
-export GOPATH=$HOME/go
-export PATH="$PATH:$HOME/bin:/usr/local/bin:$GOPATH/bin:$HOME/.local/bin"
-export PATH="$HOME/Library/Python/3.7/bin":$PATH
-export PATH="/usr/local/bin":$PATH
-export PATH="$HOME/git":$PATH
-export DEEPMAP_DATA_PATH="/Users/chenchen/data"
-export PATH="/usr/local/opt/gettext/bin:$PATH"
-
-alias ManualViewer="cd $HOME/ManualAlignmentViewer; ./alignment/viewer/apps/manual_alignment_viewer/manual_alignment_viewer "
-alias SingleTrackViewer="cd $HOME/SingleTrackViewer; alignment/viewer/apps/manual_alignment/single_track_alignment/single_track_alignment_viewer "
-alias PointCloudViewer="cd $HOME/PointCloudViewer; cpp_viewer/apps/point_cloud_viewer/point_cloud_viewer "
-alias GpsViewer="cd $HOME/GpsViewer; cpp_viewer/apps/gps_imu_viewer/gps_imu_viewer "
-
-function iam_role() {
-    unset AWS_ACCESS_KEY_ID
-    unset AWS_SECRET_ACCESS_KEY
-    unset AWS_SESSION_TOKEN
-    command="python $HOME/git/deepmap-it/aws-deploy/tools/assume_role_helper.py --duration 28800 $1-AlignmentTeam"
-    eval "$(eval "$command")"
-}
-iam_role prod

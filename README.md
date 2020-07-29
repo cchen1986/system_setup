@@ -23,4 +23,8 @@ for screen control.
 
 * Download and install [iTerm2](https://www.iterm2.com/).
 
+* Install Dropbox.
+
+* Run setup script `./setup.sh`
+
 ## Linux Setup
