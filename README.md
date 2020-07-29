@@ -21,10 +21,12 @@ for screen control.
     - Upper right: control-alt-K.
     - Lower right: control-alt-L.
 
-* Download and install [iTerm2](https://www.iterm2.com/).
+* Run setup script `./setup.sh`. NOTE: you may need to run it twice in case
+  on-my-zsh quit the install.
 
 * Install Dropbox.
 
-* Run setup script `./setup.sh`
+* `vim .vimrc`, then `:PlugInstall`. Upon completion, `cd
+  ~/.vim/plugged/YouCompleteMe`, and run `python install.py --clang-completer`
 
 ## Linux Setup

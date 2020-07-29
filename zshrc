@@ -98,7 +98,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export PATH="$PATH:$HOME/bin:/usr/local/bin:$HOME/.local/bin"
+export GOPATH=$HOME/go
+export PATH="/usr/local/bin:$HOME/bin:$GOPATH/bin:$HOME/.local/bin:$PATH"
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 # python
@@ -122,20 +123,6 @@ alias up3='cd .. && cd .. && cd ..'
 alias l='ls'
 alias ll='ls -lh'
 
-# Alias for SSH
-alias t3="ssh -X titan3"
-alias t3r="ssh -X titan3-remote"
-alias t1="ssh -Y titan1"
-alias t1r="ssh -Y titan1-remote"
-alias t2="ssh -Y titan2"
-alias t2r="ssh -Y titan2-remote"
-alias t0="ssh -X titan0"
-alias t0r="ssh -X titan0-remote"
-alias p="ssh -C -Y proc"
-alias pr="ssh -X proc-remote"
-alias d="ssh -X depot3"
-alias sensor="ssh -X sensor"
-
 alias sc="screen -L"
 alias sn="screen -L -S"
 alias sl="screen -ls"
@@ -154,8 +141,10 @@ alias ga="git add"
 alias gc="git checkout"
 alias gr="git rebase"
 
-test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.zsh"
 alias size="du -sh"
 if type nvim > /dev/null 2>&1; then
   alias vim='nvim'
 fi
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
