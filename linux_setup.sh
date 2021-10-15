@@ -1,3 +1,76 @@
 #!/bin/bash -e
 
 echo "Setting up Linux ..."
+
+CURRENT_PATH=`pwd`
+echo "Current path: $CURRENT_PATH"
+
+cp inputrc $HOME/.inputrc
+source $HOME/.inputrc
+
+cp vimrc $HOME/.vimrc
+
+# Update the base package list
+sudo apt-get update
+
+# Install some prequisite tools for getting anything else done.
+sudo apt-get install -y \
+  apt-transport-https \
+  ca-certificates curl \
+  software-properties-common
+# Install base development packages
+sudo apt-get update && \
+  sudo apt-get install -y \
+  build-essential \
+  cmake \
+  gfortran \
+  git \
+  jq \
+  libaio1 \
+  libbz2-dev \
+  libglu1-mesa-dev \
+  libgoogle-glog-dev \
+  liblz4-dev \
+  libusb-1.0-0-dev \
+  libvulkan-dev \
+  openjdk-8-jdk \
+  pkg-config \
+  qt5-default \
+  sudo \
+  unzip \
+  wget \
+  libzmq3-dev \
+  zip \
+  zlib1g-dev \
+  libnl-3-dev \
+  libnl-genl-3-dev
+
+# Install and switch to python 3.7
+ubuntu_version=`lsb_release -rs`;\
+    if [ ${ubuntu_version} = "16.04" ]; then\
+      sudo add-apt-repository -y ppa:deadsnakes/ppa;\
+      sudo apt-get update;\
+    else \
+      sudo apt-get install -y python3-distutils;\
+    fi
+sudo apt-get install -y python3.7-dev;\
+    python_bin="/usr/bin/python3.7";\
+    sudo update-alternatives --install /usr/bin/python python ${python_bin} 1; \
+    sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 1;
+
+# Install pip
+curl https://bootstrap.pypa.io/get-pip.py -o /tmp/get-pip.py && \
+python /tmp/get-pip.py
+
+pip install awscli==1.18.177 \
+    boto3==1.16.17 \
+    pandas==0.24.2 \
+    pyarrow==0.15.1 \
+    requests==2.25.0 \
+    matplotlib==3.3.3 \
+    opencv-python==3.4.3.18 \
+    opencv-contrib-python==3.4.3.18 \
+    mock future
+
+echo "build --spawn_strategy=standalone --genrule_strategy=standalone" \
+  > ~/.bazelrc
