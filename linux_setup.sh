@@ -74,3 +74,30 @@ pip install awscli==1.18.177 \
 
 echo "build --spawn_strategy=standalone --genrule_strategy=standalone" \
   > ~/.bazelrc
+
+# Change default python to python 3.7
+# sudo update-alternatives --config python
+#
+# Terminal won't show up?
+# sudo vim /usr/bin/gnome-terminal, change !/usr/bin/python3 to !/usr/bin/python3.6
+#
+# No module named apt_pkg?
+# sudo vim /usr/bin/add-apt-repository, change !/usr/bin/python3 to !/usr/bin/python3.6
+
+# Install Neovim 0.5
+# sudo add-apt-repository ppa:neovim-ppa/unstable
+# sudo apt-get update
+# sudo apt-get install neovim
+#echo "Configuring NeoVim ..."
+#curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+#    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+#mkdir -p $HOME/.config
+#ln -s ~/.vim $HOME/.config/nvim
+#ln -s ~/.vimrc $HOME/.config/nvim/init.vim
+#
+# Neovim python support
+# pip install neovim && \
+# pip3 install neovim
+
+# pip install neovim --upgrade && \
+# pip3 install neovim --upgrade

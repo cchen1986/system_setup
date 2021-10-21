@@ -126,6 +126,8 @@ vmap <Enter> <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
+let g:python3_host_prog = '/usr/bin/python3.6'
+
 " Vim airline
 let g:airline_powerline_fonts=1
 let g:airline_section_y = '%{substitute(getcwd(), expand("$HOME"), "~", "g")}'  "Set relative path
