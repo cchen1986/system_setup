@@ -114,3 +114,11 @@ echo "build --spawn_strategy=standalone --genrule_strategy=standalone" \
 
 # pip install neovim --upgrade && \
 # pip3 install neovim --upgrade
+
+# Install Go
+# tar -C $HOME -xzf ~/Downloads/go1.17.2.linux-amd64.tar.gz
+# export PATH=$PATH:/usr/local/go/bin
+# $ go version
+
+# Install buildifier
+# go install github.com/bazelbuild/buildtools/buildifier@latest
