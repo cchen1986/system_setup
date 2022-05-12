@@ -1,0 +1,121 @@
+{
+    "[proto3]": {
+        "editor.defaultFormatter": "xaver.clang-format"
+    },
+    "[cpp]": {
+        "editor.defaultFormatter": "xaver.clang-format"
+    },
+    "editor.formatOnSave": true,
+    "editor.rulers": [
+        80
+    ],
+    "editor.tabSize": 2,
+    "editor.renderWhitespace": "all",
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "clang-format.fallbackStyle": "Google",
+    "clang-format.executable": "/usr/local/bin/clang-format",
+    "bazel.executable": "/usr/local/bin/bazel",
+    "bazel.buildifierExecutable": "/usr/local/bin/buildifier",
+    "bazel.buildifierFixOnFormat": true,
+    "C_Cpp.errorSquiggles": "Disabled",
+    "python.formatting.provider": "yapf",
+    "vim.easymotion": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "k",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+        {
+            "before": [
+                "j",
+                "k"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<leader>",
+                "d"
+            ],
+            "after": [
+                "d",
+                "d"
+            ]
+        },
+        {
+            "before": [
+                "<C-n>"
+            ],
+            "commands": [
+                ":nohl"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "w"
+            ],
+            "commands": [
+                ":w"
+            ]
+        }
+        {
+            "before": [
+                "<leader>",
+                "q"
+            ],
+            "commands": [
+                ":q"
+            ]
+        }
+        {
+            "before": [
+                "K"
+            ],
+            "commands": [
+                "lineBreakInsert"
+            ],
+            "silent": true
+        }
+        {
+            "before": [
+                "enter"
+            ],
+            "after": [
+                "v",
+                "a",
+                "f"
+            ],
+        }
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "enter"
+            ],
+            "after": [
+                "a",
+                "f"
+            ],
+        }
+    ]
+    "vim.leader": ";",
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-f>": false
+    }
+}
