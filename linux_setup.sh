@@ -1,124 +1,175 @@
-#!/bin/bash -e
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-echo "Setting up Linux ..."
-CURRENT_PATH=`pwd`
-echo "Current path: $CURRENT_PATH"
+# Path to your oh-my-zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
 
-cp inputrc $HOME/.inputrc
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
-cp vimrc $HOME/.vimrc
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
-# Update the base package list
-echo "sudo apt-get update"
-sudo apt-get update
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
-# Install some prequisite tools for getting anything else done.
-echo "\n\nInstall some prequisite tools for getting anything else done ..."
-sudo apt-get install -y \
-  apt-transport-https \
-  ca-certificates curl \
-  software-properties-common
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
 
-# Install base development packages
-echo "\n\nInstalling base development packages ..."
-sudo apt-get update && \
-  sudo apt-get install -y \
-  build-essential \
-  cmake \
-  vim \
-  gfortran \
-  git \
-  jq \
-  libaio1 \
-  libbz2-dev \
-  libglu1-mesa-dev \
-  libgoogle-glog-dev \
-  liblz4-dev \
-  libusb-1.0-0-dev \
-  libvulkan-dev \
-  openjdk-8-jdk \
-  pkg-config \
-  qt5-default \
-  sudo \
-  unzip \
-  wget \
-  libzmq3-dev \
-  zip \
-  zlib1g-dev \
-  libnl-3-dev \
-  libnl-genl-3-dev
-sudo apt-get autoremove
-exit
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
 
-# Install and switch to python 3.7
-echo "\n\nInstalling python 3.7 ..."
-ubuntu_version=`lsb_release -rs`;\
-    if [ ${ubuntu_version} = "16.04" ]; then\
-      sudo add-apt-repository -y ppa:deadsnakes/ppa;\
-      sudo apt-get update;\
-    else \
-      sudo apt-get install -y python3-distutils;\
-    fi
-sudo apt-get install -y python3.7-dev;\
-    python_bin="/usr/bin/python3.7";\
-    sudo update-alternatives --install /usr/bin/python python ${python_bin} 1; \
-    sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 1;
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
 
-sudo apt remove python3-apt
-sudo apt autoremove
-sudo apt autoclean
-sudo apt install python3-apt
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
 
-# Install pip
-echo "\n\nInstalling pip ..."
-curl https://bootstrap.pypa.io/get-pip.py -o /tmp/get-pip.py && \
-python /tmp/get-pip.py
-export PATH="$HOME/.local/bin:$PATH"
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
 
-echo "\n\nInstalling pip libs ..."
-pip install awscli==1.18.177 \
-    boto3==1.16.17 \
-    pandas==0.24.2 \
-    pyarrow==0.15.1 \
-    requests==2.25.0 \
-    matplotlib==3.3.3 \
-    opencv-python==3.4.3.18 \
-    opencv-contrib-python==3.4.3.18 \
-    mock future
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
 
-echo "build --spawn_strategy=standalone --genrule_strategy=standalone" \
-  > ~/.bazelrc
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
 
-# Change default python to python 3.7
-# sudo update-alternatives --config python
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load?
+# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(
+  git
+)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
 #
-# Terminal won't show up?
-# sudo vim /usr/bin/gnome-terminal, change !/usr/bin/python3 to !/usr/bin/python3.6
-#
-# No module named apt_pkg?
-# sudo vim /usr/bin/add-apt-repository, change !/usr/bin/python3 to !/usr/bin/python3.6
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Install Neovim 0.5
-# sudo add-apt-repository ppa:neovim-ppa/unstable
-# sudo apt-get update
-# sudo apt-get install neovim
-#echo "Configuring NeoVim ..."
-#curl -fLo ~/.vim/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-#mkdir -p $HOME/.config
-#ln -s ~/.vim $HOME/.config/nvim
-#ln -s ~/.vimrc $HOME/.config/nvim/init.vim
-#
-# Neovim python support
-# pip install neovim && \
-# pip3 install neovim
+# python
+alias python="python3"
+alias pip="pip3"
 
-# pip install neovim --upgrade && \
-# pip3 install neovim --upgrade
+alias mynotes="cd ~/Dropbox/notes && jupyter notebook --ip=127.0.0.1"
+alias work="cd $HOME/git/deepmap-core/ && git status"
+alias nv="cd $HOME/git/nvidia/ndas && git status"
 
-# Install Go
-# tar -C $HOME -xzf ~/Downloads/go1.17.2.linux-amd64.tar.gz
-# export PATH=$PATH:/usr/local/go/bin
-# $ go version
+# Bazel functions
+alias bb="bazel build "
+alias bbc="bazel build -c opt"
+alias br="bazel run --"
+alias brc="bazel run -c opt --"
+alias bt="bazel test --test_output=all"
+alias btc="bazel test -c opt --test_output=all"
 
-# Install buildifier
-# go install github.com/bazelbuild/buildtools/buildifier@latest
+alias up='cd ..'
+alias up2='cd .. && cd ..'
+alias up3='cd .. && cd .. && cd ..'
+alias l='ls'
+alias ll='ls -lh'
+
+alias sc="screen -L"
+alias sn="screen -L -S"
+alias sl="screen -ls"
+alias sr="screen -d -r"
+# show screen info
+alias si="echo $STY"
+
+# Alias for Git
+alias g="git"
+alias gb="git branch"
+alias gpull="git pull"
+alias gpush="git push"
+alias gs="git status"
+alias gl="git log --pretty=format:'%C(auto)%H %ci %Cblue%<(12)%aN %Creset%s' --graph"
+alias ga="git add"
+alias gc="git checkout"
+alias gr="git rebase"
+
+alias size="du -sh"
+if type nvim > /dev/null 2>&1; then
+  alias vim='nvim'
+fi
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# DeepMap VPN
+alias vpnon="cd $HOME/cato && ./cclient.sh start --account=deepmap --user='chen chen' --password='Charles1986' --reconn 2"
+#alias vpnon="cd $HOME/cato && ./cclient.sh start --account=deepmap --user='chen chen' --password='Charles1986' --reconn 2 --load >/dev/null&"
+alias vpnoff='cd $HOME/cato && sudo ./cclient.sh stop;cd -'
+alias vpnstat='cd $HOME/cato && ./status.sh;cd -'
+
+function iam_role() {
+    unset AWS_ACCESS_KEY_ID
+    unset AWS_SECRET_ACCESS_KEY
+    unset AWS_SESSION_TOKEN
+    command="python $HOME/git/deepmap-it/aws-deploy/tools/assume_role_helper.py --duration 28800 $1-AlignmentTeam"
+    eval "$(eval "$command")"
+}
+
+alias cp_manual_viewer='rm -rf $HOME/ManualAlignmentViewer;cp -rL $HOME/git/deepmap-core/bazel-bin/alignment/viewer/apps/manual_alignment_viewer/manual_alignment_viewer.runfiles/__main__ $HOME/ManualAlignmentViewer'
+alias ManualViewer="cd $HOME/ManualAlignmentViewer; ./alignment/viewer/apps/manual_alignment_viewer/manual_alignment_viewer "
+alias LandmarkTrackViewer="cd $HOME/LandmarkTrackViewer; ./roadmem/viewer/apps/landmark_track_viewer/landmark_track_viewer"
+alias SingleTrackViewer="cd $HOME/SingleTrackViewer; alignment/viewer/apps/manual_alignment/single_track_alignment/single_track_alignment_viewer "
+alias PointCloudViewer="cd $HOME/PointCloudViewer; cpp_viewer/apps/point_cloud_viewer/point_cloud_viewer "
+alias GpsViewer="cd $HOME/GpsViewer; cpp_viewer/apps/gps_imu_viewer/gps_imu_viewer "
+export PATH=$PATH:$HOME/go/bin
