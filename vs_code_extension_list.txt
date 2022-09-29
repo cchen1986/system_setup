@@ -1,0 +1,11 @@
+Bazel
+Better C++ Syntax
+C/C++
+C/C++ Extension Pack
+C/C++ Themes
+Clang-Format
+Code Spell Checker
+Docker
+Python
+Vim
+vscode-proto3
