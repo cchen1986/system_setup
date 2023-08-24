@@ -5,21 +5,19 @@
     "[cpp]": {
         "editor.defaultFormatter": "xaver.clang-format"
     },
-    "editor.formatOnSave": true,
     "editor.rulers": [
         80
     ],
+    "editor.minimap.enabled": false,
     "editor.tabSize": 2,
     "editor.renderWhitespace": "all",
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
     "clang-format.fallbackStyle": "Google",
-    "clang-format.executable": "/usr/local/bin/clang-format",
+    "clang-format.executable": "/usr/bin/clang-format",
     "bazel.executable": "/usr/local/bin/bazel",
-    "bazel.buildifierExecutable": "/usr/local/bin/buildifier",
+    "bazel.buildifierExecutable": "/home/chench/go/bin/buildifier",
     "bazel.buildifierFixOnFormat": true,
-    "C_Cpp.errorSquiggles": "Disabled",
-    "python.formatting.provider": "yapf",
     "vim.easymotion": true,
     "vim.incsearch": true,
     "vim.useSystemClipboard": true,
@@ -34,7 +32,7 @@
             "after": [
                 "<Esc>"
             ]
-        }
+        },
         {
             "before": [
                 "j",
@@ -72,7 +70,7 @@
             "commands": [
                 ":w"
             ]
-        }
+        },
         {
             "before": [
                 "<leader>",
@@ -81,7 +79,7 @@
             "commands": [
                 ":q"
             ]
-        }
+        },
         {
             "before": [
                 "K"
@@ -90,7 +88,7 @@
                 "lineBreakInsert"
             ],
             "silent": true
-        }
+        },
         {
             "before": [
                 "enter"
@@ -112,10 +110,11 @@
                 "f"
             ],
         }
-    ]
+    ],
     "vim.leader": ";",
     "vim.handleKeys": {
         "<C-a>": false,
         "<C-f>": false
-    }
+    },
+    "files.trimTrailingWhitespace": true
 }
