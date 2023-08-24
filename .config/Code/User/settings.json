@@ -1,6 +1,6 @@
 {
     "[proto3]": {
-        "editor.defaultFormatter": "xaver.clang-format"
+        "editor.defaultFormatter": "ms-python.autopep8",
     },
     "[cpp]": {
         "editor.defaultFormatter": "xaver.clang-format"
@@ -116,5 +116,6 @@
         "<C-a>": false,
         "<C-f>": false
     },
-    "files.trimTrailingWhitespace": true
+    "files.trimTrailingWhitespace": true,
+    "editor.wordWrap": "wordWrapColumn"
 }
